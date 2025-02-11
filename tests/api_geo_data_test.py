@@ -1,10 +1,10 @@
 # http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
-# import sys
-# import os
+# Ajoute le répertoire parent au chemin d'accès (erreur 'attempted relative import with no known parent package')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# # Ajouter le répertoire parent au chemin d'accès
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import sys
+import os
 import requests
 from config import API_KEY, BASE_URL
 
