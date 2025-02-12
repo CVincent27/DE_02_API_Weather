@@ -1,0 +1,21 @@
+from datetime import datetime, timedelta
+from time import *
+
+sunrise_unix = 1726636384
+sunset_unix = 1726680975
+timezone_shift = 7200  
+
+# Transfo UTC en heure locale
+sunrise_utc = datetime.fromtimestamp(sunrise_unix)
+sunset_utc = datetime.fromtimestamp(sunset_unix)
+
+# Ajuster pour le décalage horaire
+sunrise_local = sunrise_utc + timedelta(seconds=timezone_shift)
+sunset_local = sunset_utc + timedelta(seconds=timezone_shift)
+
+# Extraire l'heure et les minutes
+sunrise_time = sunrise_local.strftime('%H:%M')
+sunset_time = sunset_local.strftime('%H:%M')
+
+print(f"Heure de lever du soleil : {sunrise_time}")
+print(f"Heure de coucher du soleil : {sunset_time}")
