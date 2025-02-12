@@ -1,21 +1,26 @@
 from datetime import datetime, timedelta
-from time import *
+import pandas as pd
 
-sunrise_unix = 1726636384
-sunset_unix = 1726680975
-timezone_shift = 7200  
+df = pd.read_csv("data_csv/weather_data.csv")
 
-# Transfo UTC en heure locale
-sunrise_utc = datetime.fromtimestamp(sunrise_unix)
-sunset_utc = datetime.fromtimestamp(sunset_unix)
+sunrise_times = []
+sunset_times = []
 
-# Ajuster pour le décalage horaire
-sunrise_local = sunrise_utc + timedelta(seconds=timezone_shift)
-sunset_local = sunset_utc + timedelta(seconds=timezone_shift)
+for col in df.itertuples(index=False):
+    sunrise_utc = col.sunrise
+    sunset_utc = col.sunset
+    timezone_shift = col.timezone
 
-# Extraire l'heure et les minutes
-sunrise_time = sunrise_local.strftime('%H:%M')
-sunset_time = sunset_local.strftime('%H:%M')
+    # Transfo UTC en heure locale
+    sunrise_utc = datetime.fromtimestamp(sunrise_utc)
+    sunset_utc = datetime.fromtimestamp(sunset_utc)
 
-print(f"Heure de lever du soleil : {sunrise_time}")
-print(f"Heure de coucher du soleil : {sunset_time}")
+    # decal horaire
+    sunrise_local = sunrise_utc + timedelta(seconds=timezone_shift)
+    sunset_local = sunset_utc + timedelta(seconds=timezone_shift)
+
+    sunrise_times.append(sunrise_local.strftime('%H:%M'))
+    sunset_times.append(sunset_local.strftime('%H:%M'))
+
+df['sunrise_time'] = sunrise_times
+df['sunset_time'] = sunset_times
