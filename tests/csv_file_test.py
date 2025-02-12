@@ -1,5 +1,4 @@
 import csv
-with open('data_csv/geo_data.csv', newline='', encoding="utf-8") as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=' ')
-    for row in spamreader:
-        print(', '.join(row))
+import pandas as pd
+df = pd.read_csv("data_csv/geo_data.csv")
+print(df['lat'][0])
