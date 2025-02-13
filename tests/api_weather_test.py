@@ -7,8 +7,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import requests
 from config import API_KEY, BASE_URL
 
-# Récupère les infos météos
-url = f"{BASE_URL}/data/2.5/weather?lat=44.34&lon=10.99&appid={API_KEY}"
+# Test avec Paris
+url = f"{BASE_URL}/data/2.5/weather?lat=48.8588897&lon=2.3200410217200766&appid={API_KEY}"
 r = requests.get(url)
 data = r.json()
 print(data)
