@@ -1,9 +1,9 @@
 import sqlite3
-import os
+from config import DB_PATH
+
+connection = sqlite3.connect(DB_PATH)
 
 def db_schema(connection):
-    db_path = os.path.join('database', 'data_weather.db')
-    connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
 
     cursor.execute("""
@@ -15,3 +15,6 @@ def db_schema(connection):
     """)
     
     connection.commit()
+
+if __name__ == "__main__":
+    db_schema()
