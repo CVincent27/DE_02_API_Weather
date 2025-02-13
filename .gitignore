@@ -3,3 +3,9 @@ api/__pycache__/geo_data.cpython-312.pyc
 __pycache__/config.cpython-312.pyc
 data_csv/weather_data.csv
 data_csv/geo_data.csv
+database/__init__.py
+database/__pycache__/__init__.cpython-313.pyc
+database/__pycache__/create_tables.cpython-313.pyc
+database/__pycache__/insert_data.cpython-313.pyc
+database/__pycache__/queries.cpython-313.pyc
+database/__pycache__/schema.cpython-313.pyc
