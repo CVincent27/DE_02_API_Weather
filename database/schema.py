@@ -15,8 +15,7 @@ def db_schema(connection):
     """)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS weather (
-            id INTEGER PRIMARY KEY,
-            city_id INTEGER,
+            city_id INTEGER PRIMARY KEY,
             weather TEXT,
             temperature REAL,
             feels_like REAL,
@@ -27,7 +26,7 @@ def db_schema(connection):
     """)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS conditions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER PRIMARY KEY,
             pressure INTEGER,
             humidity INTEGER,
             wind_speed REAL,
@@ -35,8 +34,20 @@ def db_schema(connection):
             cloud_cover INTEGER,
             rain REAL,
             snow REAL,
-            FOREIGN KEY (id) REFERENCES weather (id)
+            FOREIGN KEY (id) REFERENCES weather (city_id)
         )
+    """)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS solar_events (
+            city_id INTEGER PRIMARY KEY,
+            sunrise INTEGER,
+            sunset INTEGER,
+            timezone INTEGER,
+            utc INTEGER,
+            sunrise_time DATE,
+            sunset_time DATE,
+            FOREIGN KEY (city_id) REFERENCES cities (id)
+    )
     """)
     connection.commit()
 
