@@ -10,3 +10,8 @@ https://www.notion.so/Projet-2-Python-API-190a4d16d10180b19e03e6a9047ac7df?pvs=4
 3. Nettoyage et transformation des données
 4. Création d'une base de données relationnelle
 5. Insertion des données dans la base
+
+## Diagramme ERR
+
+![diagramER](https://github.com/user-attachments/assets/9add61fd-bae4-4a32-a0ad-0c43e0d722d4)
+
