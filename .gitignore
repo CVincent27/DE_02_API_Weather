@@ -12,3 +12,4 @@ database/__pycache__/schema.cpython-313.pyc
 api/__pycache__/geo_data.cpython-313.pyc
 api/__pycache__/weather.cpython-313.pyc
 database/data_weather.db
+clean_data/__pycache__/weather_cleaning.cpython-313.pyc
