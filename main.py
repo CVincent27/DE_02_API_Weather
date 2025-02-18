@@ -23,8 +23,8 @@ def main():
     insert_data_from_csv(connection, 'data_csv/weather_data.csv')
 
     # queries
-    cities = test_get_all_cities(connection)
-    print(cities)
+    test_get_all_cities(connection)
+
 
     connection.close()
 
