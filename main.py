@@ -1,5 +1,6 @@
 from api.geo_data import geo_data_fetch_save
 from api.weather import weather_data_fetch_save
+from clean_data.weather_cleaning import weather_data_cleaning
 
 from database.schema import db_schema, connection, DB_PATH
 from database.create_tables import initialize_database
@@ -11,6 +12,9 @@ def main():
     geo_data_fetch_save()
     #  data weather cities
     weather_data_fetch_save()
+
+    # clean data
+    weather_data_cleaning() 
 
     # init db
     db_schema(connection)
